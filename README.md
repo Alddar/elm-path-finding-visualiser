@@ -4,7 +4,7 @@ The goal of this semestral work is to replicate some of the functionality of thi
 
 The supporting functionality will be:
 - creating and modyfing the grid with wall nodes, and the start and end nodes.
-- visualising 4 main path finding algorithms - BFS, DFS and Dijkstra
+- visualising 3 main path finding algorithms - BFS, DFS and Dijkstra
 - setting the speed of the visualisation
 
 
