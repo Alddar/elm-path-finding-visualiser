@@ -2,12 +2,12 @@ module Visualisation.Dijkstra exposing (..)
 
 import Css
 import Dict exposing (Dict)
+import List exposing (range)
 import Set exposing (Set)
 import Tailwind.Theme as Th
 import Tailwind.Utilities as Tw
 import Util exposing (Map, Pos, nonVisitedNeighbors)
 import Visualisation.VisualisationUtil exposing (VisualisationState(..))
-import List exposing (range)
 
 
 type DijkstraStep
@@ -201,15 +201,15 @@ dijkstraCellCss pos _ vis =
 
 
 newDijkstraVisualisation : Map -> DijkstraVisualisation
-newDijkstraVisualisation map = 
-                    let
-                        allNodes =
-                            List.concatMap (\x -> List.map (\y -> ( x, y )) (range 0 (map.height - 1))) (range 0 (map.width - 1))
+newDijkstraVisualisation map =
+    let
+        allNodes =
+            List.concatMap (\x -> List.map (\y -> ( x, y )) (range 0 (map.height - 1))) (range 0 (map.width - 1))
 
-                        distDict =
-                            Dict.insert map.start 0 Dict.empty
+        distDict =
+            Dict.insert map.start 0 Dict.empty
 
-                        allNodesSorted =
-                            List.sortWith (dijkstraCompare distDict) allNodes
-                    in
-                    { unvisited = allNodesSorted, visited = Set.empty, parentDict = Dict.empty, dist = distDict, step = DijkstraFind, path = [] }
+        allNodesSorted =
+            List.sortWith (dijkstraCompare distDict) allNodes
+    in
+    { unvisited = allNodesSorted, visited = Set.empty, parentDict = Dict.empty, dist = distDict, step = DijkstraFind, path = [] }

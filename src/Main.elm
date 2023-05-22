@@ -277,7 +277,7 @@ updateModel msg ({ inputs, map } as model) =
                     { model | visualisation = DfsV (newDfsVisualisation model.map.start), paused = False }
 
                 Dijkstra ->
-                    { model | visualisation = DijkstraV (newDijkstraVisualisation model.map) , paused = False }
+                    { model | visualisation = DijkstraV (newDijkstraVisualisation model.map), paused = False }
 
         VisualTick ->
             { model | visualisation = tickVisualisation model.map model.visualisation }
