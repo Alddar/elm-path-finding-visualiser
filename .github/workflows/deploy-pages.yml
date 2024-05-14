@@ -14,7 +14,7 @@ jobs:
         node-version: '21'
         cache: 'yarn'
     - run: yarn
-    - run: yarn build
+    - run: yarn build --public-url https://alddar.github.io/elm-path-finding-visualiser/
     - uses: actions/upload-pages-artifact@v3
       with:
         path: dist/
